@@ -5,6 +5,8 @@ const AuthenticationProvider = ({children}) => {
 
     const [isAuth, setIsAuth] = useState(true)
     const [token, setToken] = useState({})
+
+   
      return (
         <AuthContext.Provider value={ {setIsAuth, setToken, token, isAuth} }>
             {children}

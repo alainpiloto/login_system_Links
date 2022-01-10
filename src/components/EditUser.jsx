@@ -37,32 +37,7 @@ const EditUser = ({idUser, user, setUser, setEditionMode, setShowSingleUser}) =>
                 
     }
     
-    const handleDelete = (e) => {
-        e.preventDefault()
-        
-        fetch(url, {
-            method: 'DELETE', 
-             }).then(res => {
-            if(res.status === 204) {
-                alert(`El usario con id: ${idUser} ha sido eliminado correctamente`);
-                setUser({
-                    name : '',
-                    job : ''
-                });
-                setEditionMode(false)
-                setShowSingleUser(false)
-                navigate('/dashboard');
-            }
-            
-            res.json()})
-            .catch(error => console.error('Error:', error))
-            .then(response => {
-               
-                console.log('Success:', response)
-            }
-            )
-                
-    }
+    
     
 
     return (
