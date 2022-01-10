@@ -14,11 +14,12 @@ const Login = () => {
     useEffect( () => {
         
         const tokenLS = JSON.parse(localStorage.getItem( 'tokenLinkUser' )) ?? {};
-        setToken(tokenLS)
+        setToken({...tokenLS})
+        console.log(tokenLS)
         if('token' in token) {
             navigate('/dashboard')
         } 
-    }, [] )
+    }, [token] )
     
     
 
