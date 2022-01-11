@@ -1,6 +1,6 @@
-import {useState, useContext} from 'react'
+import {useState, useContext, useEffect} from 'react'
 import { useNavigate} from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.development';
+
 
 import AuthContext from '../Context/authentication';
 
@@ -12,14 +12,17 @@ const Login = () => {
     const { setIsAuth, setToken, token} = useContext(AuthContext) 
     
     useEffect( () => {
-        
+                        
         const tokenLS = JSON.parse(localStorage.getItem( 'tokenLinkUser' )) ?? {};
-        setToken({...tokenLS})
-        console.log(tokenLS)
-        if('token' in token) {
+        if(tokenLS.token === 'QpwL5tke4Pnpja7X4') {
+            setIsAuth(true)
             navigate('/dashboard')
-        } 
-    }, [token] )
+        } else {
+            console.log('esta vacio')
+        }
+       
+    }, [] )
+
     
     
 
@@ -51,7 +54,7 @@ const Login = () => {
                     setIsAuth(true);
                     navigate('/dashboard')
                 } else {
-                    setToken(null);
+                    setToken({});
                 }
                 console.log('Success:', response)
             }

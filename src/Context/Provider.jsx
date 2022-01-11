@@ -3,8 +3,8 @@ import AuthContext from "./authentication";
 
 const AuthenticationProvider = ({children}) => {
 
-    const [isAuth, setIsAuth] = useState(true)
-    const [token, setToken] = useState({})
+    const [isAuth, setIsAuth] = useState(false)
+    const [token, setToken] = useState()
 
    
      return (
